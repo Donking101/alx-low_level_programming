@@ -1,21 +1,2 @@
 #!/bin/bash
 gcc -S -masm=intel $CFILE
-
-
-#!/bin/bash
-
-# Get the C file name from the command line argument
-CFILE="$1"
-# Check if a C file is provided
-if [ -z "$CFILE" ]; then
-    echo "Usage: $0 <C_FILE>"
-    exit 1
-fi
-
-# Extract the base name of the C file (without extension)
-BASENAME=$(basename "$CFILE" .c)
-# Generate the output assembly file name
-ASSEMBLY_FILE="$BASENAME.s"
-
-# Compile the C code to assembly using gcc and save the output to the assembly file
-gcc -S -masm=intel "$CFILE" -o "$ASSEMBLY_FILE"
